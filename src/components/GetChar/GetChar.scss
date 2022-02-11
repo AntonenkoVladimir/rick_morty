@@ -1,0 +1,38 @@
+
+.get-char {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+
+  .get-char-character {
+    display: flex;
+    background: #68ad54;
+    color: #1d1f45;;
+    width: 400px;
+    margin: 10px 0;
+    padding: 5px;
+    border: 2px solid black;
+    box-shadow: 0px 4px 4px 2px greenyellow;
+
+    .get-char-character-left {
+      p {
+        width: 200px;
+      }
+      .get-char-episodes {
+        width: 400px;
+      }
+    }
+
+
+    .get-char-character-right {
+      position: relative;
+      right: 200px;
+      img {
+        width: 200px;
+        height: auto;
+      }
+    }
+  }
+}
+
