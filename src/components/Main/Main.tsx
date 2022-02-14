@@ -1,9 +1,9 @@
 import {URLSearchParamsInit, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import {gql, useQuery} from "@apollo/client";
 import {FC} from "react";
 import {filterList, filterListKeys} from "../../utils/constans";
-import GetChar from "../GetChar/GetChar";
 import {IFilters, INewObj} from "../../interfaces/interfaces";
-import {gql, useQuery} from "@apollo/client";
+import GetChar from "../GetChar/GetChar";
 import "./Main.scss";
 
 const Main: FC = () => {
@@ -16,7 +16,8 @@ const Main: FC = () => {
     const newObj: INewObj = {};
 
     filterKeys.forEach(key => {
-      if (key !== filter && value !== "Without sort") {
+      if (key === filter && value === "Without sort") {
+      } else {
         const currentValue = searchParams.get(key)
         if (currentValue) newObj[key] = currentValue;
       }
@@ -24,6 +25,7 @@ const Main: FC = () => {
 
     if (value !== "Without sort") newObj[filter] = value;
     setSearchParams(newObj as URLSearchParamsInit);
+    navigate(`/main/1${getSearch()}`);
   };
 
   const getSearch = () => {
@@ -38,11 +40,13 @@ const Main: FC = () => {
 
   const getFilters = () => {
     const newArr: object[] = [];
+
     filterKeys.map(key => {
       if (searchParams.get(key)) newArr.push([key, searchParams.get(key)]);
     })
     return newArr;
   }
+
   const filters: IFilters[] = getFilters();
   let filter = "";
   if (filters.length > 0) {
@@ -79,10 +83,8 @@ const Main: FC = () => {
     `;
   const {loading, error, data} = useQuery(getCharacters);
 
-  if(error) navigate(`/main/1${getSearch()}`)
-
   return (
-    <div className="main-page">
+      <div className="main-page">
       <div className="main-page-sort">
         {
           filterKeys.map(filter => (
