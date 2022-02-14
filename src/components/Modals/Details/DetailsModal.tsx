@@ -28,8 +28,7 @@ const DetailsModal: FC<DetailsProps> = ({id, setIsDetails}) => {
     }
     `;
   const {loading, error, data} = useQuery(getCharacter);
-  if(loading) return null;
-  if(error) return null;
+  if(loading || error) return null;
   const { name, status, species, type, gender, image, location, episode}: IDetails = data.character
   return <div className="details" onClick={() => setIsDetails(false)}>
     <div className="details-char" onClick={(e) => e.stopPropagation()} >
@@ -40,7 +39,7 @@ const DetailsModal: FC<DetailsProps> = ({id, setIsDetails}) => {
         <p>type: {type}</p>
         <p>gender: {gender}</p>
         <p>location: {location.name}</p>
-        <p className="details-char-episodes">episodes: {episode.map(item => (`${item.name}, `))}</p>
+        <p className="details-char-episodes">episodes: {episode.map((item, index) => (`${item.name}${index === episode.length - 1 ? "." : ","} `))}</p>
       </div>
       <div className="details-char-right">
         <img src={image}/>

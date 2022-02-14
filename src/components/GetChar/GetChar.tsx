@@ -38,7 +38,7 @@ const GetChar: FC<GetCharProps> = ({loading, data}) => {
             <p>type: {type}</p>
             <p>gender: {gender}</p>
             <p>location: {location.name}</p>
-            <p className="get-char-episodes">episodes: {episode.map(item => (`${item.name}, `))}</p>
+            <p className="get-char-episodes">episodes: {episode.map((item, index) => (`${item.name}${index === episode.length - 1 ? "." : ","} `))}</p>
           </div>
           <div className="get-char-character-right">
             <img src={image}/>
