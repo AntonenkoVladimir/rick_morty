@@ -1,10 +1,10 @@
 import {FC} from "react";
 import {URLSearchParamsInit, useNavigate, useParams, useSearchParams} from "react-router-dom";
 import {gql, useQuery} from "@apollo/client";
-import {filterList, filterListKeys} from "../../utils/constans";
-import {IFilters, INewObj} from "../../interfaces/interfaces";
-import GetChar from "../GetChar/GetChar";
-import Error from "../Error/Error";
+import {filterList, filterListKeys} from "../../../utils/constans";
+import {INewObj} from "./types";
+import GetChar from "../../GetChar/GetChar";
+import Error from "../../Error/Error";
 import "./Main.scss";
 
 const Main: FC = () => {
@@ -39,7 +39,7 @@ const Main: FC = () => {
   }
 
   const getFilters = () => {
-    const newArr: object[] = [];
+    const newArr: (string | null)[][] = [];
 
     filterKeys.map(key => {
       if (searchParams.get(key)) newArr.push([key, searchParams.get(key)]);
@@ -47,12 +47,12 @@ const Main: FC = () => {
     return newArr;
   }
 
-  const filters: IFilters[] = getFilters();
+  const filters = getFilters();
   let filter = "";
-  if (filters.length > 0) {
+  if (!!filters.length) {
     filter += ", filter:{"
     filters.map((item, index) => {
-      if (index !== 0) filter += ", "
+      if (!!index) filter += ", "
       filter += `${item[0]}: "${item[1]}"`
     })
     filter += "}"
@@ -82,8 +82,6 @@ const Main: FC = () => {
     }
     `;
   const {loading, error, data} = useQuery(getCharacters);
-
-
 
   return (
       <div className="main-page">
@@ -127,7 +125,7 @@ const Main: FC = () => {
           <GetChar
           loading={loading}
           data={data}
-        />}
+          />}
     </div>
   );
 };

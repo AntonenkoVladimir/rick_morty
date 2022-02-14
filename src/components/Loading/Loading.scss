@@ -1,0 +1,41 @@
+.loading {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .loading-character {
+    display: flex;
+    background: #68ad54;
+    color: #1d1f45;;
+    width: 400px;
+    margin: 10px 0px 10px 35px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 2px greenyellow;
+
+    .loading-left {
+      p {
+        width: 200px;
+      }
+      .get-char-episodes {
+        width: 400px;
+        height: 20px;
+      }
+    }
+
+
+    .loading-right {
+      position: relative;
+      right: 200px;
+      div {
+        border-top-right-radius: 5px;
+        border: 0.5px solid black;
+        width: 200px;
+        height: 200px;
+        background: gray;
+      }
+    }
+  }
+}
+
