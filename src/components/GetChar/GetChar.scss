@@ -3,38 +3,17 @@
   color: greenyellow;
   text-align: center;
 }
-
-.get-char-error {
-  font-size: 50px;
-  color: greenyellow;
-  text-align: center;
-  button {
-    font-size: 30px;
-    width: 400px;
-    height: 75px;
-    background: #68ad54;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 2px 2px 4px 2px rgba(255, 255, 255, 0.75);
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-
 .get-char {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around;
 
   .get-char-character {
     display: flex;
     background: #68ad54;
     color: #1d1f45;;
     width: 400px;
-    margin: 10px 0;
+    margin: 10px 0px 10px 35px;
     padding: 5px;
     border: 2px solid black;
     border-radius: 10px;

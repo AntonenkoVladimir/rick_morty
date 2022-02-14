@@ -1,0 +1,18 @@
+.get-char-error {
+  font-size: 50px;
+  color: greenyellow;
+  text-align: center;
+  button {
+    font-size: 30px;
+    width: 400px;
+    height: 75px;
+    background: #68ad54;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 4px 2px rgba(255, 255, 255, 0.75);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
