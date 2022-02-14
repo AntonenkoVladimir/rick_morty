@@ -1,7 +1,7 @@
-import {Routes, Route, Navigate} from "react-router-dom";
-import Main from "./components/Main/Main";
-import "./App.scss";
 import {FC} from "react";
+import {Routes, Route, Navigate} from "react-router-dom";
+import Main from "./components/pages/Main/Main";
+import "./App.scss";
 
 const App: FC = () => {
   return (
